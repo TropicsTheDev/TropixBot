@@ -17,7 +17,7 @@ client.on("ready", () => {
 client.on("message", (message) => {
   const { channel, author, content } = message;
   if (author.bot) return;
-
+  if (content)
   if (content.startsWith(pfx)) {
     const [cmdName, ...args] = content
       .trim()
@@ -30,7 +30,7 @@ client.on("message", (message) => {
           break;
         case "r":
           const roll = Rpg.diceRoll(...args);
-          channel.send(`${author} RESULT: \`${roll}\``);
+          channel.send(`${author} \`\`\`Output:\n${roll}\`\`\``);
           break;
       }
     } catch (error) {
