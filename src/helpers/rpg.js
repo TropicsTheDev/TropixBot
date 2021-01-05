@@ -12,7 +12,7 @@ class Rpg {
 
     while (count <= amount) {
       value = Math.floor(Math.random() * sides + 1);
-      if (mod !== "") value = `${value} +(${mod}) = ${value + mod}`;
+      if (mod !== "") value = `${value} +(${mod}) = [${value + mod}]`;
       // if (mod !== "") value = `${value} +(${mod}) = ${value + mod}`;
       output += value;
       if (count !== amount) output += ", ";

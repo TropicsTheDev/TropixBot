@@ -30,7 +30,7 @@ client.on("message", (message) => {
           break;
         case "r":
           const roll = Rpg.diceRoll(...args);
-          channel.send(`${author} ROLL RESULT: \`${roll}\``);
+          channel.send(`${author} RESULT: \`${roll}\``);
           break;
       }
     } catch (error) {
