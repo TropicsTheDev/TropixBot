@@ -17,23 +17,26 @@ client.on("ready", () => {
 client.on("message", (message) => {
   const { channel, author, content } = message;
   if (author.bot) return;
-  if (content)
+  console.log({ content });
   if (content.startsWith(pfx)) {
     const [cmdName, ...args] = content
       .trim()
       .substring(pfx.length)
-      .split(/\s+/);
+      .split(/\s+/); 
+    console.log({ cmdName, args });
     try {
       switch (cmdName) {
         case "greet":
           channel.send(`What's good ${author.username}?`);
           break;
         case "r":
+          console.log(args);
           const roll = Rpg.diceRoll(...args);
           channel.send(`${author} \`\`\`Output:\n${roll}\`\`\``);
           break;
       }
     } catch (error) {
+      console.error(error);
       channel.send("EXCUSE ME?");
     }
   }
