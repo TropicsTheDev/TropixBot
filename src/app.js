@@ -5,7 +5,7 @@ const client = new Client();
 const pfx = "$";
 
 //helpers
-const Rpg = require("./helpers/rpg");
+const Rpg = require("./classes/rpg");
 
 // do stuff
 client.login(process.env.BOT_TOKEN);
@@ -17,13 +17,11 @@ client.on("ready", () => {
 client.on("message", (message) => {
   const { channel, author, content } = message;
   if (author.bot) return;
-  console.log({ content });
   if (content.startsWith(pfx)) {
     const [cmdName, ...args] = content
       .trim()
       .substring(pfx.length)
       .split(/\s+/); 
-    console.log({ cmdName, args });
     try {
       switch (cmdName) {
         case "greet":
